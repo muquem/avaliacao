@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Avaliação 3</title>
+	
+	<h:outputScript  name="calendar.js" library="js"/>
+	
+</h:head>
+<h:body>
+
+	<h:form id="form">
+
+		<h:panelGrid columns="2">
+
+
+			<h:outputText value="Medicamento:" />
+			<p:inputText id="nm_medicamento" label="nm_medicamento"
+				required="true" maxlength="50"
+				value="#{estoqueMB.edit.nm_medicamento}" />
+
+
+			<h:outputText value="Data de Produção:" />
+			<p:calendar locale="pt" id="dt_producao" label="dt_producao"
+				required="true" requiredMessage="Data é obrigatório"
+				pattern="dd/MM/yyyy" value="#{estoqueMB.edit.dt_producao}" />
+
+
+
+
+
+			<h:outputText  value="Data de Vencimento:" />
+			<p:calendar locale="pt" id="dt_vencimento" label="dt_vencimento" required="true"
+				requiredMessage="Data é obrigatório" pattern="dd/MM/yyyy"
+				value="#{estoqueMB.edit.dt_vencimento}" />
+
+
+			<h:outputText value="Estoque:" />
+			<p:inputText id="estoque" label="estoque" required="true"
+				maxlength="50" value="#{estoqueMB.edit.estoque}" />
+
+
+			<h:outputText value="Preço:" />
+			<p:inputText id="preco" label="preco" required="true" maxlength="40"
+				value="#{estoqueMB.edit.preco}" />
+
+
+		</h:panelGrid>
+
+		<h:panelGrid columns="4">
+
+
+			<p:commandButton id="btnNovo" value="Novo" icon="ui-icon-plue"
+				oncomplete="PF('dgInclusao').show()" immediate="true" />
+
+
+
+			<p:commandButton value="Cadastrar" icon="ui-icon-check"
+				actionListener="#{estoqueMB.onSave()}" />
+
+
+
+			<p:commandButton value="Atualizar" id="btnEditar"
+				icon="ui-icon-pencil" actionListener="#{estoqueMB.onUpdate()}"
+				title="Atualizar">
+			</p:commandButton>
+
+
+			<p:commandButton value="Excluir" id="btnExcluir"
+				actionListener="#{estoqueMB.onRemove()}" icon="ui-icon-close"
+				title="Excluir">
+			</p:commandButton>
+
+		</h:panelGrid>
+
+
+	</h:form>
+
+
+
+
+
+
+
+</h:body>
+</html>
